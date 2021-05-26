@@ -7,20 +7,17 @@ use App\Http\Requests\NewsUpdateRequest;
 use App\Http\Resources\NewsResource;
 use App\Models\News;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Http\Response;
 
 class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return AnonymousResourceCollection
+     * @return JsonResponse
      */
-    public function index(): AnonymousResourceCollection
+    public function index(): JsonResponse
     {
-        return NewsResource::collection(News::all());
+        return response()->json(NewsResource::collection(News::all())) ;
     }
 
     /**
@@ -39,11 +36,11 @@ class NewsController extends Controller
      * Display the specified resource.
      *
      * @param News $news
-     * @return NewsResource
+     * @return JsonResponse
      */
-    public function show(News $news): NewsResource
+    public function show(News $news): JsonResponse
     {
-        return new NewsResource($news);
+        return response()->json(new NewsResource($news));
     }
 
     /**
@@ -51,13 +48,13 @@ class NewsController extends Controller
      *
      * @param NewsUpdateRequest $request
      * @param News $news
-     * @return News
+     * @return JsonResponse
      */
-    public function update(NewsUpdateRequest $request, News $news): News
+    public function update(NewsUpdateRequest $request, News $news): JsonResponse
     {
         $news->update($request->validated());
 
-        return $news;
+        return response()->json($news, 201);
     }
 
     /**
