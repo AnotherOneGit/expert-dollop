@@ -39,7 +39,7 @@
 - cp .env.example .env
 - php artisan key:generate
 - Создать БД, указать название, логин, пароль в .env
-php artisan migrate
+- php artisan migrate
 - php artisan db:seed
 - php artisan serve
 - http://127.0.0.1:8000/api/news
