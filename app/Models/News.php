@@ -10,8 +10,10 @@ class News extends Model
 {
     use HasFactory;
 
-    public function status(): BelongsTo
-    {
-        return $this->belongsTo(Status::class);
-    }
+    protected $fillable = [
+        'title',
+        'body',
+        'status'
+    ];
+
 }

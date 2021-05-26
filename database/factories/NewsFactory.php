@@ -24,7 +24,7 @@ class NewsFactory extends Factory
         return [
             'title' => $this->faker->sentence(3),
             'body' => $this->faker->sentence(9),
-            'status_id' => rand(1, 3),
+            'status' => $this->faker->word(),
         ];
     }
 }
