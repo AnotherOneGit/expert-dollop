@@ -34,15 +34,15 @@
 3. Покрыть код тестами.
 
 ## Порядок действий:
-git clone https://github.com/AnotherOneGit/expert-dollop.git
-cd expert-dollop
-cp .env.example .env
-php artisan key:generate
-Создать БД, указать название, логин, пароль в .env
+- git clone https://github.com/AnotherOneGit/expert-dollop.git
+- cd expert-dollop
+- cp .env.example .env
+- php artisan key:generate
+- Создать БД, указать название, логин, пароль в .env
 php artisan migrate
-php artisan db:seed
-php artisan serve
-http://127.0.0.1:8000/api/news
+- php artisan db:seed
+- php artisan serve
+- http://127.0.0.1:8000/api/news
 
 При тестировании через Postman - взять нужный api_token из таблицы users (в зависимости от is_admin) и подставить в Auth-Bearer Token. 
 
