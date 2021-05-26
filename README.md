@@ -32,3 +32,21 @@
 1. Разделить права для роутов через middleware, если пользователь захочет получить доступ к роутам админа, то ему должна вернуться ошибка 403
 2. Использование реквестов для валидировании данных
 3. Покрыть код тестами.
+
+## Порядок действий:
+git clone https://github.com/AnotherOneGit/expert-dollop.git
+cd expert-dollop
+cp .env.example .env
+php artisan key:generate
+Создать БД, указать название, логин, пароль в .env
+php artisan migrate
+php artisan db:seed
+php artisan serve
+http://127.0.0.1:8000/api/news
+
+При тестировании через Postman - взять нужный api_token из таблицы users (в зависимости от is_admin) и подставить в Auth-Bearer Token. 
+
+- GET|HEAD  | api/news        | news.index   | App\Http\Controllers\NewsController@index 
+- POST      | api/news        | news.store   | App\Http\Controllers\NewsController@store
+- GET|HEAD  | api/news/{news} | news.show    | App\Http\Controllers\NewsController@show
+- PUT|PATCH | api/news/{news} | news.update  | App\Http\Controllers\NewsController@update
