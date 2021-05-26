@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\News;
+use App\Models\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class NewsFactory extends Factory
+class StatusFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = News::class;
+    protected $model = Status::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,7 @@ class NewsFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(3),
-            'body' => $this->faker->sentence(9),
-            'status_id' => rand(1, 3),
+            'status' => $this->faker->word(),
         ];
     }
 }

@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\NewsResource;
-use App\Models\News;
+use App\Models\Status;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class NewsController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return AnonymousResourceCollection
+     * @return \Illuminate\Http\Response
      */
-    public function index(): AnonymousResourceCollection
+    public function index()
     {
-        return NewsResource::collection(News::all());
+        //
     }
 
     /**
@@ -33,22 +31,22 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param News $news
-     * @return NewsResource
+     * @param  \App\Models\Status  $status
+     * @return \Illuminate\Http\Response
      */
-    public function show(News $news): NewsResource
+    public function show(Status $status)
     {
-        return new NewsResource($news);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param News $news
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, Status $status)
     {
         //
     }
@@ -56,10 +54,10 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param News $news
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy(Status $status)
     {
         //
     }
