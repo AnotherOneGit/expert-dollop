@@ -7,6 +7,7 @@ use App\Http\Requests\NewsUpdateRequest;
 use App\Http\Resources\NewsResource;
 use App\Models\News;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
@@ -15,9 +16,13 @@ class NewsController extends Controller
      *
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(Request $request)
     {
-        return response()->json(NewsResource::collection(News::all())) ;
+        if ($request->has('search')) {
+            return response()->json(NewsResource::collection(News::where('title', 'like', "%$request->search%")->get()));
+
+        }
+        return response()->json(NewsResource::collection(News::all()));
     }
 
     /**
